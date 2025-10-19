@@ -18,3 +18,14 @@ A.define (node_modules/@webcomponents/scoped-custom-element-registry/src/scoped-
 /hacsfiles/lovelace-mushroom/mushroom.js:24:126
 ga (/hacsfiles/lovelace-mushroom/mushroom.js:1:11051)
 /hacsfiles/lovelace-mushroom/mushroom.js:287:46360
+2025-10-19 16:37:20.918 ERROR (MainThread) [frontend.js.modern.202510012] Uncaught error from Chrome 140.0.0.0 on Linux
+Error: Failed to execute 'define' on 'CustomElementRegistry': the name "mushroom-select" has already been used with this registry
+A.define (node_modules/@webcomponents/scoped-custom-element-registry/src/scoped-custom-element-registry.ts:180:12)
+/hacsfiles/lovelace-mushroom/mushroom.js:24:126
+ga (/hacsfiles/lovelace-mushroom/mushroom.js:1:11051)
+/hacsfiles/lovelace-mushroom/mushroom.js:287:46360
+2025-10-19 16:49:19.658 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2025-10-19 16:49:21.365 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2025-10-19 16:52:46.523 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2025-10-19 16:52:48.466 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2025-10-19 16:52:50.293 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
