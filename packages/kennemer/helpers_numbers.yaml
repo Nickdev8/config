@@ -1,0 +1,151 @@
+# -------- Dim & CCT (mireds 153–500) --------
+fake_entrance_hall_brightness:
+  name: Entrance Hall Brightness
+  min: 0
+  max: 255
+  step: 1
+fake_entrance_hall_mireds:
+  name: Entrance Hall Mireds
+  min: 153
+  max: 500
+  step: 1
+
+fake_reception_brightness:
+  name: Reception Brightness
+  min: 0
+  max: 255
+  step: 1
+fake_reception_mireds:
+  name: Reception Mireds
+  min: 153
+  max: 500
+  step: 1
+
+fake_hall_gf_brightness:
+  name: Hall GF Brightness
+  min: 0
+  max: 255
+  step: 1
+fake_hall_gf_mireds:
+  name: Hall GF Mireds
+  min: 153
+  max: 500
+  step: 1
+
+fake_library_brightness:
+  name: Library Brightness
+  min: 0
+  max: 255
+  step: 1
+fake_library_mireds:
+  name: Library Mireds
+  min: 153
+  max: 500
+  step: 1
+
+# -------- Temperaturen & Setpoints (°C) --------
+temp_entrance_hall_current:
+  name: Entrance Hall Temperature
+  min: 5
+  max: 35
+  step: 0.1
+  initial: 18
+  unit_of_measurement: "°C"
+temp_entrance_hall_setpoint:
+  name: Entrance Hall Setpoint
+  min: 10
+  max: 28
+  step: 0.5
+  initial: 18
+  unit_of_measurement: "°C"
+
+temp_reception_current:
+  name: Reception Temperature
+  min: 5
+  max: 35
+  step: 0.1
+  initial: 18
+  unit_of_measurement: "°C"
+temp_reception_setpoint:
+  name: Reception Setpoint
+  min: 10
+  max: 28
+  step: 0.5
+  initial: 18
+  unit_of_measurement: "°C"
+
+temp_hall_gf_current:
+  name: Hall GF Temperature
+  min: 5
+  max: 35
+  step: 0.1
+  initial: 18
+  unit_of_measurement: "°C"
+temp_hall_gf_setpoint:
+  name: Hall GF Setpoint
+  min: 10
+  max: 28
+  step: 0.5
+  initial: 18
+  unit_of_measurement: "°C"
+
+temp_library_current:
+  name: Library Temperature
+  min: 5
+  max: 35
+  step: 0.1
+  initial: 18
+  unit_of_measurement: "°C"
+temp_library_setpoint:
+  name: Library Setpoint
+  min: 10
+  max: 28
+  step: 0.5
+  initial: 18
+  unit_of_measurement: "°C"
+
+# -------- Power (W) helper (backend; UI uses template sensor) --------
+power_entrance_hall_w:
+  name: Entrance Hall Power
+  min: 0
+  max: 5000
+  step: 1
+  unit_of_measurement: "W"
+power_reception_w:
+  name: Reception Power
+  min: 0
+  max: 5000
+  step: 1
+  unit_of_measurement: "W"
+power_hall_gf_w:
+  name: Hall GF Power
+  min: 0
+  max: 5000
+  step: 1
+  unit_of_measurement: "W"
+power_library_w:
+  name: Library Power
+  min: 0
+  max: 5000
+  step: 1
+  unit_of_measurement: "W"
+
+# -------- Blinds (positie 0–100 %) --------
+fake_blind_reception_pos:
+  name: Reception Blind Position
+  min: 0
+  max: 100
+  step: 1
+  unit_of_measurement: "%"
+fake_blind_hall_gf_pos:
+  name: Hall GF Blind Position
+  min: 0
+  max: 100
+  step: 1
+  unit_of_measurement: "%"
+fake_blind_library_pos:
+  name: Library Blind Position
+  min: 0
+  max: 100
+  step: 1
+  unit_of_measurement: "%"

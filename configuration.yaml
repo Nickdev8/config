@@ -1,41 +1,21 @@
+# ===== Core =====
 default_config:
 
 frontend:
   themes: !include_dir_merge_named themes
 
+# ===== Includes (alles uit één folder) =====
 homeassistant:
-  customize: !include customize.yaml
+  customize: !include packages/kennemer/customize.yaml
 
-# Split helpers by domain
-input_boolean: !include helpers_booleans.yaml      # on/off flags for template lights
-input_number:  !include helpers_numbers.yaml       # brightness, mireds, temps, power
-input_select:  !include helpers_selects.yaml       # scene dropdowns per room
+input_boolean: !include packages/kennemer/helpers_booleans.yaml
+input_number: !include packages/kennemer/helpers_numbers.yaml
+input_select: !include packages/kennemer/helpers_selects.yaml
 
-# Lights, covers, scenes (you already have lights.yaml & scenes.yaml)
-light: !include lights.yaml
-cover: !include covers.yaml        # NEW below
-scene: !include scenes.yaml
+cover: !include packages/kennemer/covers.yaml
+light: !include packages/kennemer/lights.yaml
+scene: !include packages/kennemer/scenes.yaml
+script: !include packages/kennemer/scripts.yaml
+automation: !include packages/kennemer/automations.yaml
 
-# Automations to map select -> scene
-automation: !include automations.yaml
-
-script: !include scripts.yaml
-
-template:
-  - sensor:
-      - name: "Entrance Hall Power"
-        unique_id: sensor.power_entrance_hall_w
-        unit_of_measurement: "W"
-        state: "{{ states('input_number.power_entrance_hall_w') | int(0) }}"
-      - name: "Reception Power"
-        unique_id: sensor.power_reception_w
-        unit_of_measurement: "W"
-        state: "{{ states('input_number.power_reception_w') | int(0) }}"
-      - name: "Hall GF Power"
-        unique_id: sensor.power_hall_gf_w
-        unit_of_measurement: "W"
-        state: "{{ states('input_number.power_hall_gf_w') | int(0) }}"
-      - name: "Library Power"
-        unique_id: sensor.power_library_w
-        unit_of_measurement: "W"
-        state: "{{ states('input_number.power_library_w') | int(0) }}"
+template: !include packages/kennemer/template.yaml

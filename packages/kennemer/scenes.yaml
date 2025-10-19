@@ -1,0 +1,53 @@
+# Entrance Hall
+- name: Entrance Hall – Off
+  entities: { light.entrance_hall: "off" }
+- name: Entrance Hall – On (Bright)
+  entities:
+    { light.entrance_hall: { state: "on", brightness: 230, color_temp: 300 } }
+- name: Entrance Hall – Warm Ambience
+  entities:
+    { light.entrance_hall: { state: "on", brightness: 180, color_temp: 370 } }
+- name: Entrance Hall – Cool Focus
+  entities:
+    { light.entrance_hall: { state: "on", brightness: 230, color_temp: 200 } }
+- name: Entrance Hall – Cleaning
+  entities:
+    { light.entrance_hall: { state: "on", brightness: 255, color_temp: 300 } }
+
+# Reception
+- name: Reception – Off
+  entities: { light.reception: "off" }
+- name: Reception – On (Bright)
+  entities:
+    { light.reception: { state: "on", brightness: 230, color_temp: 300 } }
+- name: Reception – Warm Ambience
+  entities:
+    { light.reception: { state: "on", brightness: 170, color_temp: 370 } }
+- name: Reception – Cool Focus
+  entities:
+    { light.reception: { state: "on", brightness: 230, color_temp: 200 } }
+- name: Reception – Cleaning
+  entities:
+    { light.reception: { state: "on", brightness: 255, color_temp: 300 } }
+
+# Hall GF
+- name: Hall GF – Off
+  entities: { light.hall_gf: "off" }
+- name: Hall GF – On (Bright)
+  entities: { light.hall_gf: { state: "on", brightness: 230, color_temp: 300 } }
+- name: Hall GF – Warm Ambience
+  entities: { light.hall_gf: { state: "on", brightness: 180, color_temp: 370 } }
+- name: Hall GF – Cool Focus
+  entities: { light.hall_gf: { state: "on", brightness: 230, color_temp: 200 } }
+- name: Hall GF – Cleaning
+  entities: { light.hall_gf: { state: "on", brightness: 255, color_temp: 300 } }
+
+# Library
+- name: Library – Off
+  entities: { light.library: "off" }
+- name: Library – On (Bright)
+  entities: { light.library: { state: "on", brightness: 210, color_temp: 320 } }
+- name: Library – Warm Quiet Study
+  entities: { light.library: { state: "on", brightness: 150, color_temp: 380 } }
+- name: Library – Cleaning
+  entities: { light.library: { state: "on", brightness: 255, color_temp: 300 } }

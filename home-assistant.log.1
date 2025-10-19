@@ -1,14 +1,75 @@
-2025-10-19 13:35:55.841 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration hacs which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2025-10-19 13:37:38.721 ERROR (MainThread) [frontend.js.modern.202510012] Uncaught error from Chrome 140.0.0.0 on Linux
-Error: Failed to execute 'define' on 'CustomElementRegistry': the name "mushroom-select" has already been used with this registry
-A.define (node_modules/@webcomponents/scoped-custom-element-registry/src/scoped-custom-element-registry.ts:180:12)
-/hacsfiles/lovelace-mushroom/mushroom.js:24:126
-ga (/hacsfiles/lovelace-mushroom/mushroom.js:1:11051)
-/hacsfiles/lovelace-mushroom/mushroom.js:287:46360
-2025-10-19 13:37:58.554 ERROR (MainThread) [frontend.js.legacy.202510012] Uncaught error from unknown browser on unknown OS
-Error: Failed to execute 'define' on 'CustomElementRegistry': the name "mushroom-select" has already been used with this registry
-A.define (node_modules/@webcomponents/scoped-custom-element-registry/src/scoped-custom-element-registry.ts:180:12)
-/hacsfiles/lovelace-mushroom-better-sliders/mushroom.js:29:61
-/hacsfiles/lovelace-mushroom-better-sliders/mushroom.js:29:76
-n (/hacsfiles/lovelace-mushroom-better-sliders/mushroom.js:1:963)
-/hacsfiles/lovelace-mushroom-better-sliders/mushroom.js:569:66
+2025-10-19 14:40:02.520 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration hacs which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2025-10-19 15:15:12.818 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2025-10-19 15:15:16.425 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2025-10-19 15:18:36.700 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2025-10-19 15:20:03.697 ERROR (MainThread) [homeassistant.config_entries] Error setting up entry Lamp 8 parterre color for shelly
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/config_entries.py", line 761, in __async_setup_with_context
+    result = await component.async_setup_entry(hass, self)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/shelly/__init__.py", line 141, in async_setup_entry
+    return await _async_setup_block_entry(hass, entry)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/shelly/__init__.py", line 198, in _async_setup_block_entry
+    await device.initialize()
+  File "/usr/local/lib/python3.13/site-packages/aioshelly/block_device/device.py", line 155, in initialize
+    self._shelly = await get_info(
+                   ^^^^^^^^^^^^^^^
+        self.aiohttp_session, self.options.ip_address, self.options.device_mac
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/usr/local/lib/python3.13/site-packages/aioshelly/common.py", line 87, in get_info
+    async with aiohttp_session.get(
+               ~~~~~~~~~~~~~~~~~~~^
+        URL.build(scheme="http", host=ip_address, port=port, path="/shelly"),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        raise_for_status=True,
+        ^^^^^^^^^^^^^^^^^^^^^^
+        timeout=DEVICE_IO_TIMEOUT_CLIENT_TIMEOUT,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ) as resp:
+    ^
+  File "/usr/local/lib/python3.13/site-packages/aiohttp/client.py", line 1488, in __aenter__
+    self._resp: _RetType = await self._coro
+                           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/aiohttp/client.py", line 770, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/aiohttp/client.py", line 725, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/usr/local/lib/python3.13/site-packages/aiohttp/connector.py", line 642, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/aiohttp/connector.py", line 1209, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/aiohttp/connector.py", line 1550, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "/usr/local/lib/python3.13/site-packages/aiohttp/connector.py", line 1268, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "/usr/local/lib/python3.13/site-packages/aiohappyeyeballs/impl.py", line 73, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "/usr/local/lib/python3.13/site-packages/aiohappyeyeballs/impl.py", line 208, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "/usr/local/lib/python3.13/asyncio/selector_events.py", line 641, in sock_connect
+    return await fut
+           ^^^^^^^^^
+asyncio.exceptions.CancelledError: Home Assistant is stopping

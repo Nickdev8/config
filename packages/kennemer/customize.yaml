@@ -1,0 +1,31 @@
+light.entrance_hall: { friendly_name: Entrance Hall, icon: mdi:door-sliding }
+light.reception: { friendly_name: Reception, icon: mdi:desk }
+light.hall_gf: { friendly_name: Hallway – GF, icon: mdi:linear-scale }
+light.library: { friendly_name: Library, icon: mdi:bookshelf }
+
+cover.reception_blind: { friendly_name: Reception Blind, icon: mdi:blinds }
+cover.hall_gf_blind: { friendly_name: Hall GF Blind, icon: mdi:blinds }
+cover.library_blind: { friendly_name: Library Blind, icon: mdi:blinds }
+
+scene.entrance_hall_off: { icon: mdi:lightbulb-off }
+scene.entrance_hall_on_bright: { icon: mdi:brightness-7 }
+scene.entrance_hall_warm_ambience: { icon: mdi:white-balance-iridescent }
+scene.entrance_hall_cool_focus: { icon: mdi:snowflake }
+scene.entrance_hall_cleaning: { icon: mdi:vacuum }
+
+scene.reception_off: { icon: mdi:lightbulb-off }
+scene.reception_on_bright: { icon: mdi:brightness-7 }
+scene.reception_warm_ambience: { icon: mdi:white-balance-iridescent }
+scene.reception_cool_focus: { icon: mdi:snowflake }
+scene.reception_cleaning: { icon: mdi:vacuum }
+
+scene.hall_gf_off: { icon: mdi:lightbulb-off }
+scene.hall_gf_on_bright: { icon: mdi:brightness-7 }
+scene.hall_gf_warm_ambience: { icon: mdi:white-balance-iridescent }
+scene.hall_gf_cool_focus: { icon: mdi:snowflake }
+scene.hall_gf_cleaning: { icon: mdi:vacuum }
+
+scene.library_off: { icon: mdi:lightbulb-off }
+scene.library_on_bright: { icon: mdi:brightness-7 }
+scene.library_warm_quiet_study: { icon: mdi:book-variant }
+scene.library_cleaning: { icon: mdi:vacuum }

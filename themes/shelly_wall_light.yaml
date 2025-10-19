@@ -1,0 +1,15 @@
+Shelly Wall Light:
+  modes:
+    light:
+      primary-background-color: "#FAFAFA"
+      card-background-color: "#FFFFFF"
+      secondary-background-color: "#F2F3F5"
+      primary-text-color: "#111111"
+      secondary-text-color: "#444444"
+      divider-color: rgba(0,0,0,0.12)
+      # Mushroom tweaks (smaller, tighter)
+      mush-card-primary-font-size: 18px
+      mush-card-secondary-font-size: 12px
+      mush-chip-height: 34px
+      mush-chip-border-radius: 18px
+      mush-spacing: 8px

@@ -1,0 +1,15 @@
+scene_entrance_hall:
+  name: Entrance Hall Mode
+  options: ["🔴 OFF", "☀️ BRIGHT", "🌤️ WARM", "❄️ COOL", "🧹 CLEAN"]
+
+scene_reception:
+  name: Reception Mode
+  options: ["🔴 OFF", "☀️ BRIGHT", "🌤️ WARM", "❄️ COOL", "🧹 CLEAN"]
+
+scene_hall_gf:
+  name: Hall GF Mode
+  options: ["🔴 OFF", "☀️ BRIGHT", "🌤️ WARM", "❄️ COOL", "🧹 CLEAN"]
+
+scene_library:
+  name: Library Mode
+  options: ["🔴 OFF", "☀️ BRIGHT", "🌤️ WARM", "🧹 CLEAN"]

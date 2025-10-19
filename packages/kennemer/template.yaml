@@ -1,0 +1,50 @@
+- sensor:
+    # ----- Power (already added earlier; keep if present) -----
+    - name: "Entrance Hall Power"
+      unique_id: sensor.entrance_hall_power
+      unit_of_measurement: "W"
+      state: "{{ states('input_number.power_entrance_hall_w') | int(0) }}"
+
+    - name: "Reception Power"
+      unique_id: sensor.reception_power
+      unit_of_measurement: "W"
+      state: "{{ states('input_number.power_reception_w') | int(0) }}"
+
+    - name: "Hall GF Power"
+      unique_id: sensor.hall_gf_power
+      unit_of_measurement: "W"
+      state: "{{ states('input_number.power_hall_gf_w') | int(0) }}"
+
+    - name: "Library Power"
+      unique_id: sensor.library_power
+      unit_of_measurement: "W"
+      state: "{{ states('input_number.power_library_w') | int(0) }}"
+
+    # ----- Temperatures (read-only; no sliders) -----
+    - name: "Entrance Hall Temperature"
+      unique_id: sensor.entrance_hall_temperature
+      unit_of_measurement: "°C"
+      device_class: temperature
+      state_class: measurement
+      state: "{{ states('input_number.temp_entrance_hall_current') | float }}"
+
+    - name: "Reception Temperature"
+      unique_id: sensor.reception_temperature
+      unit_of_measurement: "°C"
+      device_class: temperature
+      state_class: measurement
+      state: "{{ states('input_number.temp_reception_current') | float }}"
+
+    - name: "Hall GF Temperature"
+      unique_id: sensor.hall_gf_temperature
+      unit_of_measurement: "°C"
+      device_class: temperature
+      state_class: measurement
+      state: "{{ states('input_number.temp_hall_gf_current') | float }}"
+
+    - name: "Library Temperature"
+      unique_id: sensor.library_temperature
+      unit_of_measurement: "°C"
+      device_class: temperature
+      state_class: measurement
+      state: "{{ states('input_number.temp_library_current') | float }}"

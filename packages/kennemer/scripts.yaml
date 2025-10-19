@@ -1,0 +1,47 @@
+# Entrance Hall
+setpoint_entrance_hall_inc:
+  alias: "Setpoint + (Entrance Hall)"
+  sequence:
+    - service: input_number.increment
+      target: { entity_id: input_number.temp_entrance_hall_setpoint }
+setpoint_entrance_hall_dec:
+  alias: "Setpoint - (Entrance Hall)"
+  sequence:
+    - service: input_number.decrement
+      target: { entity_id: input_number.temp_entrance_hall_setpoint }
+
+# Reception
+setpoint_reception_inc:
+  alias: "Setpoint + (Reception)"
+  sequence:
+    - service: input_number.increment
+      target: { entity_id: input_number.temp_reception_setpoint }
+setpoint_reception_dec:
+  alias: "Setpoint - (Reception)"
+  sequence:
+    - service: input_number.decrement
+      target: { entity_id: input_number.temp_reception_setpoint }
+
+# Hall GF
+setpoint_hall_gf_inc:
+  alias: "Setpoint + (Hall GF)"
+  sequence:
+    - service: input_number.increment
+      target: { entity_id: input_number.temp_hall_gf_setpoint }
+setpoint_hall_gf_dec:
+  alias: "Setpoint - (Hall GF)"
+  sequence:
+    - service: input_number.decrement
+      target: { entity_id: input_number.temp_hall_gf_setpoint }
+
+# Library
+setpoint_library_inc:
+  alias: "Setpoint + (Library)"
+  sequence:
+    - service: input_number.increment
+      target: { entity_id: input_number.temp_library_setpoint }
+setpoint_library_dec:
+  alias: "Setpoint - (Library)"
+  sequence:
+    - service: input_number.decrement
+      target: { entity_id: input_number.temp_library_setpoint }

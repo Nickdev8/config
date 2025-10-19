@@ -1,0 +1,85 @@
+- platform: template
+  lights:
+    entrance_hall:
+      friendly_name: "Entrance Hall"
+      unique_id: light.entrance_hall
+      value_template: "{{ is_state('input_boolean.fake_entrance_hall_on','on') }}"
+      level_template: "{{ states('input_number.fake_entrance_hall_brightness')|int(0) }}"
+      temperature_template: "{{ states('input_number.fake_entrance_hall_mireds')|int(300) }}"
+      turn_on:
+        - service: input_boolean.turn_on
+          target: { entity_id: input_boolean.fake_entrance_hall_on }
+      turn_off:
+        - service: input_boolean.turn_off
+          target: { entity_id: input_boolean.fake_entrance_hall_on }
+      set_level:
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_entrance_hall_brightness }
+          data: { value: "{{ brightness }}" }
+      set_temperature:
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_entrance_hall_mireds }
+          data: { value: "{{ color_temp }}" }
+
+    reception:
+      friendly_name: "Reception"
+      unique_id: light.reception
+      value_template: "{{ is_state('input_boolean.fake_reception_on','on') }}"
+      level_template: "{{ states('input_number.fake_reception_brightness')|int(0) }}"
+      temperature_template: "{{ states('input_number.fake_reception_mireds')|int(300) }}"
+      turn_on:
+        - service: input_boolean.turn_on
+          target: { entity_id: input_boolean.fake_reception_on }
+      turn_off:
+        - service: input_boolean.turn_off
+          target: { entity_id: input_boolean.fake_reception_on }
+      set_level:
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_reception_brightness }
+          data: { value: "{{ brightness }}" }
+      set_temperature:
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_reception_mireds }
+          data: { value: "{{ color_temp }}" }
+
+    hall_gf:
+      friendly_name: "Main Hallway – Ground Floor"
+      unique_id: light.hall_gf
+      value_template: "{{ is_state('input_boolean.fake_hall_gf_on','on') }}"
+      level_template: "{{ states('input_number.fake_hall_gf_brightness')|int(0) }}"
+      temperature_template: "{{ states('input_number.fake_hall_gf_mireds')|int(300) }}"
+      turn_on:
+        - service: input_boolean.turn_on
+          target: { entity_id: input_boolean.fake_hall_gf_on }
+      turn_off:
+        - service: input_boolean.turn_off
+          target: { entity_id: input_boolean.fake_hall_gf_on }
+      set_level:
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_hall_gf_brightness }
+          data: { value: "{{ brightness }}" }
+      set_temperature:
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_hall_gf_mireds }
+          data: { value: "{{ color_temp }}" }
+
+    library:
+      friendly_name: "Library"
+      unique_id: light.library
+      value_template: "{{ is_state('input_boolean.fake_library_on','on') }}"
+      level_template: "{{ states('input_number.fake_library_brightness')|int(0) }}"
+      temperature_template: "{{ states('input_number.fake_library_mireds')|int(300) }}"
+      turn_on:
+        - service: input_boolean.turn_on
+          target: { entity_id: input_boolean.fake_library_on }
+      turn_off:
+        - service: input_boolean.turn_off
+          target: { entity_id: input_boolean.fake_library_on }
+      set_level:
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_library_brightness }
+          data: { value: "{{ brightness }}" }
+      set_temperature:
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_library_mireds }
+          data: { value: "{{ color_temp }}" }
