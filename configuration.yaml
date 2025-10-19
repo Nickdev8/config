@@ -6,30 +6,30 @@ frontend:
 
 lovelace:
   dashboards:
-    wall_overview:
+    wall-overview:
       mode: yaml
       filename: dashboards/wall_overview.yaml
       title: Campus Overview
       icon: mdi:home-lightning-bolt
-    wall_entrance:
+    wall-entrance:
       mode: yaml
       filename: dashboards/wall_entrance.yaml
       title: Entrance Hall
       icon: mdi:door
       show_in_sidebar: false
-    wall_reception:
+    wall-reception:
       mode: yaml
       filename: dashboards/wall_reception.yaml
       title: Reception
       icon: mdi:sofa
       show_in_sidebar: false
-    wall_hall_gf:
+    wall-hall-gf:
       mode: yaml
       filename: dashboards/wall_hall_gf.yaml
       title: Hallway GF
       icon: mdi:stairs
       show_in_sidebar: false
-    wall_library:
+    wall-library:
       mode: yaml
       filename: dashboards/wall_library.yaml
       title: Library
