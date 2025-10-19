@@ -48,3 +48,36 @@
       device_class: temperature
       state_class: measurement
       state: "{{ states('input_number.temp_library_current') | float }}"
+
+    # ----- CO₂ (ppm placeholders) -----
+    - name: "Entrance Hall CO₂"
+      unique_id: sensor.entrance_hall_co2
+      unit_of_measurement: "ppm"
+      icon: mdi:molecule-co2
+      device_class: carbon_dioxide
+      state_class: measurement
+      state: "{{ states('input_number.co2_entrance_hall_ppm') | int }}"
+
+    - name: "Reception CO₂"
+      unique_id: sensor.reception_co2
+      unit_of_measurement: "ppm"
+      icon: mdi:molecule-co2
+      device_class: carbon_dioxide
+      state_class: measurement
+      state: "{{ states('input_number.co2_reception_ppm') | int }}"
+
+    - name: "Hall GF CO₂"
+      unique_id: sensor.hall_gf_co2
+      unit_of_measurement: "ppm"
+      icon: mdi:molecule-co2
+      device_class: carbon_dioxide
+      state_class: measurement
+      state: "{{ states('input_number.co2_hall_gf_ppm') | int }}"
+
+    - name: "Library CO₂"
+      unique_id: sensor.library_co2
+      unit_of_measurement: "ppm"
+      icon: mdi:molecule-co2
+      device_class: carbon_dioxide
+      state_class: measurement
+      state: "{{ states('input_number.co2_library_ppm') | int }}"

@@ -11,3 +11,16 @@ fake_staff_room_on:
 fake_it_lab_on:
 fake_exterior_front_on:
 fake_exterior_courtyard_on:
+
+presence_entrance_hall:
+  name: Entrance Hall Occupied
+  initial: on
+presence_reception:
+  name: Reception Occupied
+  initial: off
+presence_hall_gf:
+  name: Hall GF Occupied
+  initial: on
+presence_library:
+  name: Library Occupied
+  initial: off

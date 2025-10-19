@@ -59,6 +59,14 @@ temp_entrance_hall_setpoint:
   initial: 18
   unit_of_measurement: "°C"
 
+co2_entrance_hall_ppm:
+  name: Entrance Hall CO₂
+  min: 400
+  max: 2000
+  step: 1
+  initial: 560
+  unit_of_measurement: "ppm"
+
 temp_reception_current:
   name: Reception Temperature
   min: 5
@@ -73,6 +81,14 @@ temp_reception_setpoint:
   step: 0.5
   initial: 18
   unit_of_measurement: "°C"
+
+co2_reception_ppm:
+  name: Reception CO₂
+  min: 400
+  max: 2000
+  step: 1
+  initial: 620
+  unit_of_measurement: "ppm"
 
 temp_hall_gf_current:
   name: Hall GF Temperature
@@ -89,6 +105,14 @@ temp_hall_gf_setpoint:
   initial: 18
   unit_of_measurement: "°C"
 
+co2_hall_gf_ppm:
+  name: Hall GF CO₂
+  min: 400
+  max: 2000
+  step: 1
+  initial: 710
+  unit_of_measurement: "ppm"
+
 temp_library_current:
   name: Library Temperature
   min: 5
@@ -103,6 +127,14 @@ temp_library_setpoint:
   step: 0.5
   initial: 18
   unit_of_measurement: "°C"
+
+co2_library_ppm:
+  name: Library CO₂
+  min: 400
+  max: 2000
+  step: 1
+  initial: 480
+  unit_of_measurement: "ppm"
 
 # -------- Power (W) helper (backend; UI uses template sensor) --------
 power_entrance_hall_w:
