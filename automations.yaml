@@ -1,0 +1,69 @@
+# ====== Select -> Scene (Entrance Hall) ======
+- id: scene_select_entrance_hall
+  alias: Scene Select – Entrance Hall
+  trigger:
+    - platform: state
+      entity_id: input_select.scene_entrance_hall
+  action:
+    - choose:
+        - conditions: "{{ trigger.to_state.state == '🔴 OFF' }}"
+          sequence: [{ service: scene.turn_on, target: { entity_id: scene.entrance_hall_off } }]
+        - conditions: "{{ trigger.to_state.state == '☀️ BRIGHT' }}"
+          sequence: [{ service: scene.turn_on, target: { entity_id: scene.entrance_hall_on_bright } }]
+        - conditions: "{{ trigger.to_state.state == '🌤️ WARM' }}"
+          sequence: [{ service: scene.turn_on, target: { entity_id: scene.entrance_hall_warm_ambience } }]
+        - conditions: "{{ trigger.to_state.state == '❄️ COOL' }}"
+          sequence: [{ service: scene.turn_on, target: { entity_id: scene.entrance_hall_cool_focus } }]
+        - conditions: "{{ trigger.to_state.state == '🧹 CLEAN' }}"
+          sequence: [{ service: scene.turn_on, target: { entity_id: scene.entrance_hall_cleaning } }]
+
+# Reception
+- id: scene_select_reception
+  alias: Scene Select – Reception
+  trigger: [{ platform: state, entity_id: input_select.scene_reception }]
+  action:
+    - choose:
+        - conditions: "{{ trigger.to_state.state == 'OFF' }}"
+          sequence: [{ service: scene.turn_on, target: { entity_id: scene.reception_off } }]
+        - conditions: "{{ trigger.to_state.state == 'BRIGHT' }}"
+          sequence: [{ service: scene.turn_on, target: { entity_id: scene.reception_on_bright } }]
+        - conditions: "{{ trigger.to_state.state == 'WARM' }}"
+          sequence: [{ service: scene.turn_on, target: { entity_id: scene.reception_warm_ambience } }]
+        - conditions: "{{ trigger.to_state.state == 'COOL' }}"
+          sequence: [{ service: scene.turn_on, target: { entity_id: scene.reception_cool_focus } }]
+        - conditions: "{{ trigger.to_state.state == 'CLEAN' }}"
+          sequence: [{ service: scene.turn_on, target: { entity_id: scene.reception_cleaning } }]
+
+# Hall GF
+- id: scene_select_hall_gf
+  alias: Scene Select – Hall GF
+  trigger: [{ platform: state, entity_id: input_select.scene_hall_gf }]
+  action:
+    - choose:
+        - conditions: "{{ trigger.to_state.state == 'OFF' }}"
+          sequence: [{ service: scene.turn_on, target: { entity_id: scene.hall_gf_off } }]
+        - conditions: "{{ trigger.to_state.state == 'BRIGHT' }}"
+          sequence: [{ service: scene.turn_on, target: { entity_id: scene.hall_gf_on_bright } }]
+        - conditions: "{{ trigger.to_state.state == 'WARM' }}"
+          sequence: [{ service: scene.turn_on, target: { entity_id: scene.hall_gf_warm_ambience } }]
+        - conditions: "{{ trigger.to_state.state == 'COOL' }}"
+          sequence: [{ service: scene.turn_on, target: { entity_id: scene.hall_gf_cool_focus } }]
+        - conditions: "{{ trigger.to_state.state == 'CLEAN' }}"
+          sequence: [{ service: scene.turn_on, target: { entity_id: scene.hall_gf_cleaning } }]
+
+# Library (no COOL/Present, adjust to your scenes)
+- id: scene_select_library
+  alias: Scene Select – Library
+  trigger: [{ platform: state, entity_id: input_select.scene_library }]
+  action:
+    - choose:
+        - conditions: "{{ trigger.to_state.state == 'OFF' }}"
+          sequence: [{ service: scene.turn_on, target: { entity_id: scene.library_off } }]
+        - conditions: "{{ trigger.to_state.state == 'BRIGHT' }}"
+          sequence: [{ service: scene.turn_on, target: { entity_id: scene.library_on_bright } }]
+        - conditions: "{{ trigger.to_state.state == 'WARM' }}"
+          sequence: [{ service: scene.turn_on, target: { entity_id: scene.library_warm_quiet_study } }]
+        - conditions: "{{ trigger.to_state.state == 'CLEAN' }}"
+          sequence: [{ service: scene.turn_on, target: { entity_id: scene.library_cleaning } }]
+
+# Repeat similarly for other rooms… (you can copy/paste and swap entity_ids)

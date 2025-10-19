@@ -1,0 +1,195 @@
+# Brightness 0–255, Color temp (mireds) 153–500
+
+# Entrance Hall
+fake_entrance_hall_brightness:
+  name: Entrance Hall Brightness
+  min: 0
+  max: 255
+  step: 1
+fake_entrance_hall_mireds:
+  name: Entrance Hall Mireds
+  min: 153
+  max: 500
+  step: 1
+
+# Reception
+fake_reception_brightness:
+  name: Reception Brightness
+  min: 0
+  max: 255
+  step: 1
+fake_reception_mireds:
+  name: Reception Mireds
+  min: 153
+  max: 500
+  step: 1
+
+# Main Hallway – Ground Floor
+fake_hall_gf_brightness:
+  name: Hall GF Brightness
+  min: 0
+  max: 255
+  step: 1
+fake_hall_gf_mireds:
+  name: Hall GF Mireds
+  min: 153
+  max: 500
+  step: 1
+
+# Main Hallway – First Floor
+fake_hall_1f_brightness:
+  name: Hall 1F Brightness
+  min: 0
+  max: 255
+  step: 1
+fake_hall_1f_mireds:
+  name: Hall 1F Mireds
+  min: 153
+  max: 500
+  step: 1
+
+# Auditorium
+fake_auditorium_brightness:
+  name: Auditorium Brightness
+  min: 0
+  max: 255
+  step: 1
+fake_auditorium_mireds:
+  name: Auditorium Mireds
+  min: 153
+  max: 500
+  step: 1
+
+# Cafeteria
+fake_cafeteria_brightness:
+  name: Cafeteria Brightness
+  min: 0
+  max: 255
+  step: 1
+fake_cafeteria_mireds:
+  name: Cafeteria Mireds
+  min: 153
+  max: 500
+  step: 1
+
+# Library
+fake_library_brightness:
+  name: Library Brightness
+  min: 0
+  max: 255
+  step: 1
+fake_library_mireds:
+  name: Library Mireds
+  min: 153
+  max: 500
+  step: 1
+
+# Gym
+fake_gym_brightness:
+  name: Gym Brightness
+  min: 0
+  max: 255
+  step: 1
+fake_gym_mireds:
+  name: Gym Mireds
+  min: 153
+  max: 500
+  step: 1
+
+# Science Corridor
+fake_science_corridor_brightness:
+  name: Science Corridor Brightness
+  min: 0
+  max: 255
+  step: 1
+fake_science_corridor_mireds:
+  name: Science Corridor Mireds
+  min: 153
+  max: 500
+  step: 1
+
+# Staff Room
+fake_staff_room_brightness:
+  name: Staff Room Brightness
+  min: 0
+  max: 255
+  step: 1
+fake_staff_room_mireds:
+  name: Staff Room Mireds
+  min: 153
+  max: 500
+  step: 1
+
+# IT Lab
+fake_it_lab_brightness:
+  name: IT Lab Brightness
+  min: 0
+  max: 255
+  step: 1
+fake_it_lab_mireds:
+  name: IT Lab Mireds
+  min: 153
+  max: 500
+  step: 1
+
+# Exterior Front
+fake_exterior_front_brightness:
+  name: Exterior Front Brightness
+  min: 0
+  max: 255
+  step: 1
+fake_exterior_front_mireds:
+  name: Exterior Front Mireds
+  min: 153
+  max: 500
+  step: 1
+
+# Exterior Courtyard
+fake_exterior_courtyard_brightness:
+  name: Exterior Courtyard Brightness
+  min: 0
+  max: 255
+  step: 1
+fake_exterior_courtyard_mireds:
+  name: Exterior Courtyard Mireds
+  min: 153
+  max: 500
+  step: 1
+
+# Temperatures (°C) and power (W) per room. We just display these directly.
+# Entrance Hall
+# Example: Entrance Hall
+temp_entrance_hall_current:
+  name: Entrance Hall Temperature
+  min: 5
+  max: 35
+  step: 0.1
+  initial: 18         # default current temp for demo
+  unit_of_measurement: "°C"
+
+temp_entrance_hall_setpoint:
+  name: Entrance Hall Setpoint
+  min: 10
+  max: 28
+  step: 0.5           # increments/decrements by 0.5
+  initial: 18         # default setpoint
+  unit_of_measurement: "°C"
+
+# Reception (with blinds)
+temp_reception_current: { name: Reception Temperature, min: 5, max: 35, step: 0.1, unit_of_measurement: "°C" }
+temp_reception_setpoint: { name: Reception Setpoint, min: 10, max: 28, step: 0.5, unit_of_measurement: "°C" }
+power_reception_w: { name: Reception Power, min: 0, max: 5000, step: 1, unit_of_measurement: "W" }
+
+# Hall GF (with blinds)
+temp_hall_gf_current: { name: Hall GF Temperature, min: 5, max: 35, step: 0.1, unit_of_measurement: "°C" }
+temp_hall_gf_setpoint: { name: Hall GF Setpoint, min: 10, max: 28, step: 0.5, unit_of_measurement: "°C" }
+power_hall_gf_w: { name: Hall GF Power, min: 0, max: 5000, step: 1, unit_of_measurement: "W" }
+
+# Library (with blinds)
+temp_library_current: { name: Library Temperature, min: 5, max: 35, step: 0.1, unit_of_measurement: "°C" }
+temp_library_setpoint: { name: Library Setpoint, min: 10, max: 28, step: 0.5, unit_of_measurement: "°C" }
+power_library_w: { name: Library Power, min: 0, max: 5000, step: 1, unit_of_measurement: "W" }
+
+fake_blind_reception_pos: { name: Reception Blind Position, min: 0, max: 100, step: 1, unit_of_measurement: "%" }
+fake_blind_hall_gf_pos:   { name: Hall GF Blind Position,   min: 0, max: 100, step: 1, unit_of_measurement: "%" }
+fake_blind_library_pos:   { name: Library Blind Position,   min: 0, max: 100, step: 1, unit_of_measurement: "%" }

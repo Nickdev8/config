@@ -1,0 +1,366 @@
+# =========================================
+# TEMPLATE LIGHTS – één armatuur per zone
+# - Dimbaar + kleurtemperatuur (mireds)
+# - Stuurt de helpers uit helpers.yaml
+# =========================================
+- platform: template
+  lights:
+
+    entrance_hall:
+      friendly_name: "Entrance Hall"
+      unique_id: light.entrance_hall
+      value_template: "{{ is_state('input_boolean.fake_entrance_hall_on','on') }}"
+      level_template: "{{ states('input_number.fake_entrance_hall_brightness')|int(0) }}"
+      temperature_template: "{{ states('input_number.fake_entrance_hall_mireds')|int(300) }}"
+      turn_on:
+        - service: input_boolean.turn_on
+          target: { entity_id: input_boolean.fake_entrance_hall_on }
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_entrance_hall_brightness }
+          data: { value: "{{ brightness|default(180) }}" }
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_entrance_hall_mireds }
+          data: { value: "{{ color_temp|default(states('input_number.fake_entrance_hall_mireds')) }}" }
+      turn_off:
+        - service: input_boolean.turn_off
+          target: { entity_id: input_boolean.fake_entrance_hall_on }
+      set_level:
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_entrance_hall_brightness }
+          data: { value: "{{ brightness }}" }
+        - condition: template
+          value_template: "{{ not is_state('input_boolean.fake_entrance_hall_on','on') }}"
+        - service: input_boolean.turn_on
+          target: { entity_id: input_boolean.fake_entrance_hall_on }
+      set_temperature:
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_entrance_hall_mireds }
+          data: { value: "{{ color_temp }}" }
+
+    reception:
+      friendly_name: "Reception"
+      unique_id: light.reception
+      value_template: "{{ is_state('input_boolean.fake_reception_on','on') }}"
+      level_template: "{{ states('input_number.fake_reception_brightness')|int(0) }}"
+      temperature_template: "{{ states('input_number.fake_reception_mireds')|int(300) }}"
+      turn_on:
+        - service: input_boolean.turn_on
+          target: { entity_id: input_boolean.fake_reception_on }
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_reception_brightness }
+          data: { value: "{{ brightness|default(180) }}" }
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_reception_mireds }
+          data: { value: "{{ color_temp|default(states('input_number.fake_reception_mireds')) }}" }
+      turn_off:
+        - service: input_boolean.turn_off
+          target: { entity_id: input_boolean.fake_reception_on }
+      set_level:
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_reception_brightness }
+          data: { value: "{{ brightness }}" }
+        - condition: template
+          value_template: "{{ not is_state('input_boolean.fake_reception_on','on') }}"
+        - service: input_boolean.turn_on
+          target: { entity_id: input_boolean.fake_reception_on }
+      set_temperature:
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_reception_mireds }
+          data: { value: "{{ color_temp }}" }
+
+    hall_gf:
+      friendly_name: "Main Hallway – Ground Floor"
+      unique_id: light.hall_gf
+      value_template: "{{ is_state('input_boolean.fake_hall_gf_on','on') }}"
+      level_template: "{{ states('input_number.fake_hall_gf_brightness')|int(0) }}"
+      temperature_template: "{{ states('input_number.fake_hall_gf_mireds')|int(300) }}"
+      turn_on:
+        - service: input_boolean.turn_on
+          target: { entity_id: input_boolean.fake_hall_gf_on }
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_hall_gf_brightness }
+          data: { value: "{{ brightness|default(200) }}" }
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_hall_gf_mireds }
+          data: { value: "{{ color_temp|default(300) }}" }
+      turn_off:
+        - service: input_boolean.turn_off
+          target: { entity_id: input_boolean.fake_hall_gf_on }
+      set_level:
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_hall_gf_brightness }
+          data: { value: "{{ brightness }}" }
+      set_temperature:
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_hall_gf_mireds }
+          data: { value: "{{ color_temp }}" }
+
+    hall_1f:
+      friendly_name: "Main Hallway – First Floor"
+      unique_id: light.hall_1f
+      value_template: "{{ is_state('input_boolean.fake_hall_1f_on','on') }}"
+      level_template: "{{ states('input_number.fake_hall_1f_brightness')|int(0) }}"
+      temperature_template: "{{ states('input_number.fake_hall_1f_mireds')|int(300) }}"
+      turn_on:
+        - service: input_boolean.turn_on
+          target: { entity_id: input_boolean.fake_hall_1f_on }
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_hall_1f_brightness }
+          data: { value: "{{ brightness|default(200) }}" }
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_hall_1f_mireds }
+          data: { value: "{{ color_temp|default(300) }}" }
+      turn_off:
+        - service: input_boolean.turn_off
+          target: { entity_id: input_boolean.fake_hall_1f_on }
+      set_level:
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_hall_1f_brightness }
+          data: { value: "{{ brightness }}" }
+      set_temperature:
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_hall_1f_mireds }
+          data: { value: "{{ color_temp }}" }
+
+    auditorium:
+      friendly_name: "Auditorium"
+      unique_id: light.auditorium
+      value_template: "{{ is_state('input_boolean.fake_auditorium_on','on') }}"
+      level_template: "{{ states('input_number.fake_auditorium_brightness')|int(0) }}"
+      temperature_template: "{{ states('input_number.fake_auditorium_mireds')|int(300) }}"
+      turn_on:
+        - service: input_boolean.turn_on
+          target: { entity_id: input_boolean.fake_auditorium_on }
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_auditorium_brightness }
+          data: { value: "{{ brightness|default(80) }}" }
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_auditorium_mireds }
+          data: { value: "{{ color_temp|default(350) }}" }
+      turn_off:
+        - service: input_boolean.turn_off
+          target: { entity_id: input_boolean.fake_auditorium_on }
+      set_level:
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_auditorium_brightness }
+          data: { value: "{{ brightness }}" }
+      set_temperature:
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_auditorium_mireds }
+          data: { value: "{{ color_temp }}" }
+
+    cafeteria:
+      friendly_name: "Cafeteria"
+      unique_id: light.cafeteria
+      value_template: "{{ is_state('input_boolean.fake_cafeteria_on','on') }}"
+      level_template: "{{ states('input_number.fake_cafeteria_brightness')|int(0) }}"
+      temperature_template: "{{ states('input_number.fake_cafeteria_mireds')|int(300) }}"
+      turn_on:
+        - service: input_boolean.turn_on
+          target: { entity_id: input_boolean.fake_cafeteria_on }
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_cafeteria_brightness }
+          data: { value: "{{ brightness|default(190) }}" }
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_cafeteria_mireds }
+          data: { value: "{{ color_temp|default(320) }}" }
+      turn_off:
+        - service: input_boolean.turn_off
+          target: { entity_id: input_boolean.fake_cafeteria_on }
+      set_level:
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_cafeteria_brightness }
+          data: { value: "{{ brightness }}" }
+      set_temperature:
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_cafeteria_mireds }
+          data: { value: "{{ color_temp }}" }
+
+    library:
+      friendly_name: "Library"
+      unique_id: light.library
+      value_template: "{{ is_state('input_boolean.fake_library_on','on') }}"
+      level_template: "{{ states('input_number.fake_library_brightness')|int(0) }}"
+      temperature_template: "{{ states('input_number.fake_library_mireds')|int(300) }}"
+      turn_on:
+        - service: input_boolean.turn_on
+          target: { entity_id: input_boolean.fake_library_on }
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_library_brightness }
+          data: { value: "{{ brightness|default(160) }}" }
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_library_mireds }
+          data: { value: "{{ color_temp|default(350) }}" }
+      turn_off:
+        - service: input_boolean.turn_off
+          target: { entity_id: input_boolean.fake_library_on }
+      set_level:
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_library_brightness }
+          data: { value: "{{ brightness }}" }
+      set_temperature:
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_library_mireds }
+          data: { value: "{{ color_temp }}" }
+
+    gym:
+      friendly_name: "Gym"
+      unique_id: light.gym
+      value_template: "{{ is_state('input_boolean.fake_gym_on','on') }}"
+      level_template: "{{ states('input_number.fake_gym_brightness')|int(0) }}"
+      temperature_template: "{{ states('input_number.fake_gym_mireds')|int(300) }}"
+      turn_on:
+        - service: input_boolean.turn_on
+          target: { entity_id: input_boolean.fake_gym_on }
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_gym_brightness }
+          data: { value: "{{ brightness|default(230) }}" }
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_gym_mireds }
+          data: { value: "{{ color_temp|default(300) }}" }
+      turn_off:
+        - service: input_boolean.turn_off
+          target: { entity_id: input_boolean.fake_gym_on }
+      set_level:
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_gym_brightness }
+          data: { value: "{{ brightness }}" }
+      set_temperature:
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_gym_mireds }
+          data: { value: "{{ color_temp }}" }
+
+    science_corridor:
+      friendly_name: "Science Corridor"
+      unique_id: light.science_corridor
+      value_template: "{{ is_state('input_boolean.fake_science_corridor_on','on') }}"
+      level_template: "{{ states('input_number.fake_science_corridor_brightness')|int(0) }}"
+      temperature_template: "{{ states('input_number.fake_science_corridor_mireds')|int(300) }}"
+      turn_on:
+        - service: input_boolean.turn_on
+          target: { entity_id: input_boolean.fake_science_corridor_on }
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_science_corridor_brightness }
+          data: { value: "{{ brightness|default(210) }}" }
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_science_corridor_mireds }
+          data: { value: "{{ color_temp|default(300) }}" }
+      turn_off:
+        - service: input_boolean.turn_off
+          target: { entity_id: input_boolean.fake_science_corridor_on }
+      set_level:
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_science_corridor_brightness }
+          data: { value: "{{ brightness }}" }
+      set_temperature:
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_science_corridor_mireds }
+          data: { value: "{{ color_temp }}" }
+
+    staff_room:
+      friendly_name: "Staff Room"
+      unique_id: light.staff_room
+      value_template: "{{ is_state('input_boolean.fake_staff_room_on','on') }}"
+      level_template: "{{ states('input_number.fake_staff_room_brightness')|int(0) }}"
+      temperature_template: "{{ states('input_number.fake_staff_room_mireds')|int(300) }}"
+      turn_on:
+        - service: input_boolean.turn_on
+          target: { entity_id: input_boolean.fake_staff_room_on }
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_staff_room_brightness }
+          data: { value: "{{ brightness|default(170) }}" }
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_staff_room_mireds }
+          data: { value: "{{ color_temp|default(340) }}" }
+      turn_off:
+        - service: input_boolean.turn_off
+          target: { entity_id: input_boolean.fake_staff_room_on }
+      set_level:
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_staff_room_brightness }
+          data: { value: "{{ brightness }}" }
+      set_temperature:
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_staff_room_mireds }
+          data: { value: "{{ color_temp }}" }
+
+    it_lab:
+      friendly_name: "IT Lab"
+      unique_id: light.it_lab
+      value_template: "{{ is_state('input_boolean.fake_it_lab_on','on') }}"
+      level_template: "{{ states('input_number.fake_it_lab_brightness')|int(0) }}"
+      temperature_template: "{{ states('input_number.fake_it_lab_mireds')|int(300) }}"
+      turn_on:
+        - service: input_boolean.turn_on
+          target: { entity_id: input_boolean.fake_it_lab_on }
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_it_lab_brightness }
+          data: { value: "{{ brightness|default(190) }}" }
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_it_lab_mireds }
+          data: { value: "{{ color_temp|default(280) }}" }
+      turn_off:
+        - service: input_boolean.turn_off
+          target: { entity_id: input_boolean.fake_it_lab_on }
+      set_level:
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_it_lab_brightness }
+          data: { value: "{{ brightness }}" }
+      set_temperature:
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_it_lab_mireds }
+          data: { value: "{{ color_temp }}" }
+
+    exterior_front:
+      friendly_name: "Exterior Front"
+      unique_id: light.exterior_front
+      value_template: "{{ is_state('input_boolean.fake_exterior_front_on','on') }}"
+      level_template: "{{ states('input_number.fake_exterior_front_brightness')|int(0) }}"
+      temperature_template: "{{ states('input_number.fake_exterior_front_mireds')|int(300) }}"
+      turn_on:
+        - service: input_boolean.turn_on
+          target: { entity_id: input_boolean.fake_exterior_front_on }
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_exterior_front_brightness }
+          data: { value: "{{ brightness|default(220) }}" }
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_exterior_front_mireds }
+          data: { value: "{{ color_temp|default(300) }}" }
+      turn_off:
+        - service: input_boolean.turn_off
+          target: { entity_id: input_boolean.fake_exterior_front_on }
+      set_level:
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_exterior_front_brightness }
+          data: { value: "{{ brightness }}" }
+      set_temperature:
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_exterior_front_mireds }
+          data: { value: "{{ color_temp }}" }
+
+    exterior_courtyard:
+      friendly_name: "Exterior Courtyard"
+      unique_id: light.exterior_courtyard
+      value_template: "{{ is_state('input_boolean.fake_exterior_courtyard_on','on') }}"
+      level_template: "{{ states('input_number.fake_exterior_courtyard_brightness')|int(0) }}"
+      temperature_template: "{{ states('input_number.fake_exterior_courtyard_mireds')|int(300) }}"
+      turn_on:
+        - service: input_boolean.turn_on
+          target: { entity_id: input_boolean.fake_exterior_courtyard_on }
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_exterior_courtyard_brightness }
+          data: { value: "{{ brightness|default(220) }}" }
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_exterior_courtyard_mireds }
+          data: { value: "{{ color_temp|default(320) }}" }
+      turn_off:
+        - service: input_boolean.turn_off
+          target: { entity_id: input_boolean.fake_exterior_courtyard_on }
+      set_level:
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_exterior_courtyard_brightness }
+          data: { value: "{{ brightness }}" }
+      set_temperature:
+        - service: input_number.set_value
+          target: { entity_id: input_number.fake_exterior_courtyard_mireds }
+          data: { value: "{{ color_temp }}" }
