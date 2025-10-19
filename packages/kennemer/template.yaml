@@ -3,22 +3,46 @@
     - name: "Entrance Hall Power"
       unique_id: sensor.entrance_hall_power
       unit_of_measurement: "W"
-      state: "{{ states('input_number.power_entrance_hall_w') | int(0) }}"
+      state: >
+        {% set real = states('sensor.entrance_hall_power_actual') %}
+        {% if real not in ['unknown', 'unavailable', 'none', None] %}
+          {{ real | int(0) }}
+        {% else %}
+          {{ states('input_number.power_entrance_hall_w') | int(0) }}
+        {% endif %}
 
     - name: "Reception Power"
       unique_id: sensor.reception_power
       unit_of_measurement: "W"
-      state: "{{ states('input_number.power_reception_w') | int(0) }}"
+      state: >
+        {% set real = states('sensor.reception_power_actual') %}
+        {% if real not in ['unknown', 'unavailable', 'none', None] %}
+          {{ real | int(0) }}
+        {% else %}
+          {{ states('input_number.power_reception_w') | int(0) }}
+        {% endif %}
 
     - name: "Hall GF Power"
       unique_id: sensor.hall_gf_power
       unit_of_measurement: "W"
-      state: "{{ states('input_number.power_hall_gf_w') | int(0) }}"
+      state: >
+        {% set real = states('sensor.hall_gf_power_actual') %}
+        {% if real not in ['unknown', 'unavailable', 'none', None] %}
+          {{ real | int(0) }}
+        {% else %}
+          {{ states('input_number.power_hall_gf_w') | int(0) }}
+        {% endif %}
 
     - name: "Library Power"
       unique_id: sensor.library_power
       unit_of_measurement: "W"
-      state: "{{ states('input_number.power_library_w') | int(0) }}"
+      state: >
+        {% set real = states('sensor.library_power_actual') %}
+        {% if real not in ['unknown', 'unavailable', 'none', None] %}
+          {{ real | int(0) }}
+        {% else %}
+          {{ states('input_number.power_library_w') | int(0) }}
+        {% endif %}
 
     # ----- Temperatures (read-only; no sliders) -----
     - name: "Entrance Hall Temperature"
@@ -26,28 +50,52 @@
       unit_of_measurement: "°C"
       device_class: temperature
       state_class: measurement
-      state: "{{ states('input_number.temp_entrance_hall_current') | float }}"
+      state: >
+        {% set real = states('sensor.entrance_hall_temperature_actual') %}
+        {% if real not in ['unknown', 'unavailable', 'none', None] %}
+          {{ real | float }}
+        {% else %}
+          {{ states('input_number.temp_entrance_hall_current') | float }}
+        {% endif %}
 
     - name: "Reception Temperature"
       unique_id: sensor.reception_temperature
       unit_of_measurement: "°C"
       device_class: temperature
       state_class: measurement
-      state: "{{ states('input_number.temp_reception_current') | float }}"
+      state: >
+        {% set real = states('sensor.reception_temperature_actual') %}
+        {% if real not in ['unknown', 'unavailable', 'none', None] %}
+          {{ real | float }}
+        {% else %}
+          {{ states('input_number.temp_reception_current') | float }}
+        {% endif %}
 
     - name: "Hall GF Temperature"
       unique_id: sensor.hall_gf_temperature
       unit_of_measurement: "°C"
       device_class: temperature
       state_class: measurement
-      state: "{{ states('input_number.temp_hall_gf_current') | float }}"
+      state: >
+        {% set real = states('sensor.hall_gf_temperature_actual') %}
+        {% if real not in ['unknown', 'unavailable', 'none', None] %}
+          {{ real | float }}
+        {% else %}
+          {{ states('input_number.temp_hall_gf_current') | float }}
+        {% endif %}
 
     - name: "Library Temperature"
       unique_id: sensor.library_temperature
       unit_of_measurement: "°C"
       device_class: temperature
       state_class: measurement
-      state: "{{ states('input_number.temp_library_current') | float }}"
+      state: >
+        {% set real = states('sensor.library_temperature_actual') %}
+        {% if real not in ['unknown', 'unavailable', 'none', None] %}
+          {{ real | float }}
+        {% else %}
+          {{ states('input_number.temp_library_current') | float }}
+        {% endif %}
 
     # ----- CO₂ (ppm placeholders) -----
     - name: "Entrance Hall CO₂"
@@ -56,7 +104,13 @@
       icon: mdi:molecule-co2
       device_class: carbon_dioxide
       state_class: measurement
-      state: "{{ states('input_number.co2_entrance_hall_ppm') | int }}"
+      state: >
+        {% set real = states('sensor.entrance_hall_co2_actual') %}
+        {% if real not in ['unknown', 'unavailable', 'none', None] %}
+          {{ real | int }}
+        {% else %}
+          {{ states('input_number.co2_entrance_hall_ppm') | int }}
+        {% endif %}
 
     - name: "Reception CO₂"
       unique_id: sensor.reception_co2
@@ -64,7 +118,13 @@
       icon: mdi:molecule-co2
       device_class: carbon_dioxide
       state_class: measurement
-      state: "{{ states('input_number.co2_reception_ppm') | int }}"
+      state: >
+        {% set real = states('sensor.reception_co2_actual') %}
+        {% if real not in ['unknown', 'unavailable', 'none', None] %}
+          {{ real | int }}
+        {% else %}
+          {{ states('input_number.co2_reception_ppm') | int }}
+        {% endif %}
 
     - name: "Hall GF CO₂"
       unique_id: sensor.hall_gf_co2
@@ -72,7 +132,13 @@
       icon: mdi:molecule-co2
       device_class: carbon_dioxide
       state_class: measurement
-      state: "{{ states('input_number.co2_hall_gf_ppm') | int }}"
+      state: >
+        {% set real = states('sensor.hall_gf_co2_actual') %}
+        {% if real not in ['unknown', 'unavailable', 'none', None] %}
+          {{ real | int }}
+        {% else %}
+          {{ states('input_number.co2_hall_gf_ppm') | int }}
+        {% endif %}
 
     - name: "Library CO₂"
       unique_id: sensor.library_co2
@@ -80,4 +146,10 @@
       icon: mdi:molecule-co2
       device_class: carbon_dioxide
       state_class: measurement
-      state: "{{ states('input_number.co2_library_ppm') | int }}"
+      state: >
+        {% set real = states('sensor.library_co2_actual') %}
+        {% if real not in ['unknown', 'unavailable', 'none', None] %}
+          {{ real | int }}
+        {% else %}
+          {{ states('input_number.co2_library_ppm') | int }}
+        {% endif %}
