@@ -1,0 +1,753 @@
+views:
+  - title: Wall Control (Compact)
+    path: wall-compact
+    icon: mdi:home-lightning-bolt
+    type: sections
+    theme: "Shelly Wall Light"
+    max_columns: 1
+    sections:
+
+      # ===== Entrance Hall =====
+      - type: grid
+        columns: 1
+        square: false
+        cards:
+          - type: custom:mushroom-title-card
+            title: Entrance Hall
+            subtitle: "{{ states('sensor.entrance_hall_temperature') }} °C | {{ states('sensor.entrance_hall_power') }} W"
+            icon: mdi:door
+            tap_action: none
+            hold_action: none
+            double_tap_action: none
+
+          - type: grid
+            columns: 5
+            square: false
+            cards:
+              - type: custom:button-card
+                entity: input_select.scene_entrance_hall
+                name: Off
+                icon: mdi:power-standby
+                layout: icon_name
+                show_state: false
+                show_label: false
+                size: 20px
+                styles: &scene_button_styles
+                  card:
+                    - padding: 6px 8px
+                    - border-radius: 12px
+                    - box-shadow: none
+                    - border: 1px solid rgba(var(--rgb-primary-text-color), 0.08)
+                    - background: rgba(var(--rgb-card-background-color), 0.7)
+                  name:
+                    - font-size: 11px
+                    - font-weight: 600
+                    - text-transform: uppercase
+                    - letter-spacing: 0.05em
+                    - color: var(--secondary-text-color)
+                  icon:
+                    - color: var(--secondary-text-color)
+                tap_action:
+                  action: call-service
+                  service: input_select.select_option
+                  data:
+                    option: "🔴 OFF"
+                  target:
+                    entity_id: input_select.scene_entrance_hall
+                hold_action: &scene_button_hold
+                  action: none
+                double_tap_action: *scene_button_hold
+                state:
+                  - value: "🔴 OFF"
+                    styles:
+                      card:
+                        - background: rgba(244, 67, 54, 0.18)
+                        - border: 1px solid rgba(244, 67, 54, 0.45)
+                      icon:
+                        - color: rgb(244, 67, 54)
+                      name:
+                        - color: var(--primary-text-color)
+              - type: custom:button-card
+                entity: input_select.scene_entrance_hall
+                name: Bright
+                icon: mdi:white-balance-sunny
+                layout: icon_name
+                show_state: false
+                show_label: false
+                size: 20px
+                styles: *scene_button_styles
+                tap_action:
+                  action: call-service
+                  service: input_select.select_option
+                  data:
+                    option: "☀️ BRIGHT"
+                  target:
+                    entity_id: input_select.scene_entrance_hall
+                hold_action: *scene_button_hold
+                double_tap_action: *scene_button_hold
+                state:
+                  - value: "☀️ BRIGHT"
+                    styles:
+                      card:
+                        - background: rgba(255, 193, 7, 0.2)
+                        - border: 1px solid rgba(255, 193, 7, 0.5)
+                      icon:
+                        - color: rgb(255, 193, 7)
+                      name:
+                        - color: var(--primary-text-color)
+              - type: custom:button-card
+                entity: input_select.scene_entrance_hall
+                name: Warm
+                icon: mdi:weather-partly-cloudy
+                layout: icon_name
+                show_state: false
+                show_label: false
+                size: 20px
+                styles: *scene_button_styles
+                tap_action:
+                  action: call-service
+                  service: input_select.select_option
+                  data:
+                    option: "🌤️ WARM"
+                  target:
+                    entity_id: input_select.scene_entrance_hall
+                hold_action: *scene_button_hold
+                double_tap_action: *scene_button_hold
+                state:
+                  - value: "🌤️ WARM"
+                    styles:
+                      card:
+                        - background: rgba(255, 152, 0, 0.22)
+                        - border: 1px solid rgba(255, 152, 0, 0.6)
+                      icon:
+                        - color: rgb(255, 152, 0)
+                      name:
+                        - color: var(--primary-text-color)
+              - type: custom:button-card
+                entity: input_select.scene_entrance_hall
+                name: Cool
+                icon: mdi:snowflake
+                layout: icon_name
+                show_state: false
+                show_label: false
+                size: 20px
+                styles: *scene_button_styles
+                tap_action:
+                  action: call-service
+                  service: input_select.select_option
+                  data:
+                    option: "❄️ COOL"
+                  target:
+                    entity_id: input_select.scene_entrance_hall
+                hold_action: *scene_button_hold
+                double_tap_action: *scene_button_hold
+                state:
+                  - value: "❄️ COOL"
+                    styles:
+                      card:
+                        - background: rgba(100, 181, 246, 0.22)
+                        - border: 1px solid rgba(100, 181, 246, 0.55)
+                      icon:
+                        - color: rgb(41, 182, 246)
+                      name:
+                        - color: var(--primary-text-color)
+              - type: custom:button-card
+                entity: input_select.scene_entrance_hall
+                name: Clean
+                icon: mdi:broom
+                layout: icon_name
+                show_state: false
+                show_label: false
+                size: 20px
+                styles: *scene_button_styles
+                tap_action:
+                  action: call-service
+                  service: input_select.select_option
+                  data:
+                    option: "🧹 CLEAN"
+                  target:
+                    entity_id: input_select.scene_entrance_hall
+                hold_action: *scene_button_hold
+                double_tap_action: *scene_button_hold
+                state:
+                  - value: "🧹 CLEAN"
+                    styles:
+                      card:
+                        - background: rgba(0, 191, 165, 0.22)
+                        - border: 1px solid rgba(0, 191, 165, 0.55)
+                      icon:
+                        - color: rgb(0, 191, 165)
+                      name:
+                        - color: var(--primary-text-color)
+
+          - type: custom:mushroom-chips-card
+            alignment: center
+            chip_spacing: 6
+            chips:
+              - type: action
+                icon: mdi:minus-circle
+                icon_color: primary
+                tap_action:
+                  action: call-service
+                  service: script.setpoint_entrance_hall_dec
+              - type: template
+                icon: mdi:radiator
+                icon_color: orange
+                content: "{{ states('input_number.temp_entrance_hall_setpoint') }} °C"
+                tap_action: none
+                hold_action: none
+                double_tap_action: none
+              - type: action
+                icon: mdi:plus-circle
+                icon_color: primary
+                tap_action:
+                  action: call-service
+                  service: script.setpoint_entrance_hall_inc
+
+      # ===== Reception (with blinds) =====
+      - type: grid
+        columns: 1
+        square: false
+        cards:
+          - type: custom:mushroom-title-card
+            title: Reception
+            subtitle: "{{ states('sensor.reception_temperature') }} °C | {{ states('sensor.reception_power') }} W"
+            icon: mdi:sofa
+            tap_action: none
+            hold_action: none
+            double_tap_action: none
+
+          - type: grid
+            columns: 5
+            square: false
+            cards:
+              - type: custom:button-card
+                entity: input_select.scene_reception
+                name: Off
+                icon: mdi:power-standby
+                layout: icon_name
+                show_state: false
+                show_label: false
+                size: 20px
+                styles: *scene_button_styles
+                tap_action:
+                  action: call-service
+                  service: input_select.select_option
+                  data:
+                    option: "🔴 OFF"
+                  target:
+                    entity_id: input_select.scene_reception
+                hold_action: *scene_button_hold
+                double_tap_action: *scene_button_hold
+                state:
+                  - value: "🔴 OFF"
+                    styles:
+                      card:
+                        - background: rgba(244, 67, 54, 0.18)
+                        - border: 1px solid rgba(244, 67, 54, 0.45)
+                      icon:
+                        - color: rgb(244, 67, 54)
+                      name:
+                        - color: var(--primary-text-color)
+              - type: custom:button-card
+                entity: input_select.scene_reception
+                name: Bright
+                icon: mdi:white-balance-sunny
+                layout: icon_name
+                show_state: false
+                show_label: false
+                size: 20px
+                styles: *scene_button_styles
+                tap_action:
+                  action: call-service
+                  service: input_select.select_option
+                  data:
+                    option: "☀️ BRIGHT"
+                  target:
+                    entity_id: input_select.scene_reception
+                hold_action: *scene_button_hold
+                double_tap_action: *scene_button_hold
+                state:
+                  - value: "☀️ BRIGHT"
+                    styles:
+                      card:
+                        - background: rgba(255, 193, 7, 0.2)
+                        - border: 1px solid rgba(255, 193, 7, 0.5)
+                      icon:
+                        - color: rgb(255, 193, 7)
+                      name:
+                        - color: var(--primary-text-color)
+              - type: custom:button-card
+                entity: input_select.scene_reception
+                name: Warm
+                icon: mdi:weather-partly-cloudy
+                layout: icon_name
+                show_state: false
+                show_label: false
+                size: 20px
+                styles: *scene_button_styles
+                tap_action:
+                  action: call-service
+                  service: input_select.select_option
+                  data:
+                    option: "🌤️ WARM"
+                  target:
+                    entity_id: input_select.scene_reception
+                hold_action: *scene_button_hold
+                double_tap_action: *scene_button_hold
+                state:
+                  - value: "🌤️ WARM"
+                    styles:
+                      card:
+                        - background: rgba(255, 152, 0, 0.22)
+                        - border: 1px solid rgba(255, 152, 0, 0.6)
+                      icon:
+                        - color: rgb(255, 152, 0)
+                      name:
+                        - color: var(--primary-text-color)
+              - type: custom:button-card
+                entity: input_select.scene_reception
+                name: Cool
+                icon: mdi:snowflake
+                layout: icon_name
+                show_state: false
+                show_label: false
+                size: 20px
+                styles: *scene_button_styles
+                tap_action:
+                  action: call-service
+                  service: input_select.select_option
+                  data:
+                    option: "❄️ COOL"
+                  target:
+                    entity_id: input_select.scene_reception
+                hold_action: *scene_button_hold
+                double_tap_action: *scene_button_hold
+                state:
+                  - value: "❄️ COOL"
+                    styles:
+                      card:
+                        - background: rgba(100, 181, 246, 0.22)
+                        - border: 1px solid rgba(100, 181, 246, 0.55)
+                      icon:
+                        - color: rgb(41, 182, 246)
+                      name:
+                        - color: var(--primary-text-color)
+              - type: custom:button-card
+                entity: input_select.scene_reception
+                name: Clean
+                icon: mdi:broom
+                layout: icon_name
+                show_state: false
+                show_label: false
+                size: 20px
+                styles: *scene_button_styles
+                tap_action:
+                  action: call-service
+                  service: input_select.select_option
+                  data:
+                    option: "🧹 CLEAN"
+                  target:
+                    entity_id: input_select.scene_reception
+                hold_action: *scene_button_hold
+                double_tap_action: *scene_button_hold
+                state:
+                  - value: "🧹 CLEAN"
+                    styles:
+                      card:
+                        - background: rgba(0, 191, 165, 0.22)
+                        - border: 1px solid rgba(0, 191, 165, 0.55)
+                      icon:
+                        - color: rgb(0, 191, 165)
+                      name:
+                        - color: var(--primary-text-color)
+
+          - type: custom:mushroom-chips-card
+            alignment: center
+            chip_spacing: 6
+            chips:
+              - type: action
+                icon: mdi:minus-circle
+                icon_color: primary
+                tap_action:
+                  action: call-service
+                  service: script.setpoint_reception_dec
+              - type: template
+                icon: mdi:radiator
+                icon_color: orange
+                content: "{{ states('input_number.temp_reception_setpoint') }} °C"
+                tap_action: none
+                hold_action: none
+                double_tap_action: none
+              - type: action
+                icon: mdi:plus-circle
+                icon_color: primary
+                tap_action:
+                  action: call-service
+                  service: script.setpoint_reception_inc
+
+          - type: custom:mushroom-cover-card
+            entity: cover.reception_blind
+            name: Reception Blind
+            show_position_control: true
+            show_buttons_control: true
+            fill_container: true
+            tap_action: none
+            hold_action: none
+            double_tap_action: none
+
+      # ===== Hallway GF (with blinds) =====
+      - type: grid
+        columns: 1
+        square: false
+        cards:
+          - type: custom:mushroom-title-card
+            title: Hallway GF
+            subtitle: "{{ states('sensor.hall_gf_temperature') }} °C | {{ states('sensor.hall_gf_power') }} W"
+            icon: mdi:stairs
+            tap_action: none
+            hold_action: none
+            double_tap_action: none
+
+          - type: grid
+            columns: 5
+            square: false
+            cards:
+              - type: custom:button-card
+                entity: input_select.scene_hall_gf
+                name: Off
+                icon: mdi:power-standby
+                layout: icon_name
+                show_state: false
+                show_label: false
+                size: 20px
+                styles: *scene_button_styles
+                tap_action:
+                  action: call-service
+                  service: input_select.select_option
+                  data:
+                    option: "🔴 OFF"
+                  target:
+                    entity_id: input_select.scene_hall_gf
+                hold_action: *scene_button_hold
+                double_tap_action: *scene_button_hold
+                state:
+                  - value: "🔴 OFF"
+                    styles:
+                      card:
+                        - background: rgba(244, 67, 54, 0.18)
+                        - border: 1px solid rgba(244, 67, 54, 0.45)
+                      icon:
+                        - color: rgb(244, 67, 54)
+                      name:
+                        - color: var(--primary-text-color)
+              - type: custom:button-card
+                entity: input_select.scene_hall_gf
+                name: Bright
+                icon: mdi:white-balance-sunny
+                layout: icon_name
+                show_state: false
+                show_label: false
+                size: 20px
+                styles: *scene_button_styles
+                tap_action:
+                  action: call-service
+                  service: input_select.select_option
+                  data:
+                    option: "☀️ BRIGHT"
+                  target:
+                    entity_id: input_select.scene_hall_gf
+                hold_action: *scene_button_hold
+                double_tap_action: *scene_button_hold
+                state:
+                  - value: "☀️ BRIGHT"
+                    styles:
+                      card:
+                        - background: rgba(255, 193, 7, 0.2)
+                        - border: 1px solid rgba(255, 193, 7, 0.5)
+                      icon:
+                        - color: rgb(255, 193, 7)
+                      name:
+                        - color: var(--primary-text-color)
+              - type: custom:button-card
+                entity: input_select.scene_hall_gf
+                name: Warm
+                icon: mdi:weather-partly-cloudy
+                layout: icon_name
+                show_state: false
+                show_label: false
+                size: 20px
+                styles: *scene_button_styles
+                tap_action:
+                  action: call-service
+                  service: input_select.select_option
+                  data:
+                    option: "🌤️ WARM"
+                  target:
+                    entity_id: input_select.scene_hall_gf
+                hold_action: *scene_button_hold
+                double_tap_action: *scene_button_hold
+                state:
+                  - value: "🌤️ WARM"
+                    styles:
+                      card:
+                        - background: rgba(255, 152, 0, 0.22)
+                        - border: 1px solid rgba(255, 152, 0, 0.6)
+                      icon:
+                        - color: rgb(255, 152, 0)
+                      name:
+                        - color: var(--primary-text-color)
+              - type: custom:button-card
+                entity: input_select.scene_hall_gf
+                name: Cool
+                icon: mdi:snowflake
+                layout: icon_name
+                show_state: false
+                show_label: false
+                size: 20px
+                styles: *scene_button_styles
+                tap_action:
+                  action: call-service
+                  service: input_select.select_option
+                  data:
+                    option: "❄️ COOL"
+                  target:
+                    entity_id: input_select.scene_hall_gf
+                hold_action: *scene_button_hold
+                double_tap_action: *scene_button_hold
+                state:
+                  - value: "❄️ COOL"
+                    styles:
+                      card:
+                        - background: rgba(100, 181, 246, 0.22)
+                        - border: 1px solid rgba(100, 181, 246, 0.55)
+                      icon:
+                        - color: rgb(41, 182, 246)
+                      name:
+                        - color: var(--primary-text-color)
+              - type: custom:button-card
+                entity: input_select.scene_hall_gf
+                name: Clean
+                icon: mdi:broom
+                layout: icon_name
+                show_state: false
+                show_label: false
+                size: 20px
+                styles: *scene_button_styles
+                tap_action:
+                  action: call-service
+                  service: input_select.select_option
+                  data:
+                    option: "🧹 CLEAN"
+                  target:
+                    entity_id: input_select.scene_hall_gf
+                hold_action: *scene_button_hold
+                double_tap_action: *scene_button_hold
+                state:
+                  - value: "🧹 CLEAN"
+                    styles:
+                      card:
+                        - background: rgba(0, 191, 165, 0.22)
+                        - border: 1px solid rgba(0, 191, 165, 0.55)
+                      icon:
+                        - color: rgb(0, 191, 165)
+                      name:
+                        - color: var(--primary-text-color)
+
+          - type: custom:mushroom-chips-card
+            alignment: center
+            chip_spacing: 6
+            chips:
+              - type: action
+                icon: mdi:minus-circle
+                icon_color: primary
+                tap_action:
+                  action: call-service
+                  service: script.setpoint_hall_gf_dec
+              - type: template
+                icon: mdi:radiator
+                icon_color: orange
+                content: "{{ states('input_number.temp_hall_gf_setpoint') }} °C"
+                tap_action: none
+                hold_action: none
+                double_tap_action: none
+              - type: action
+                icon: mdi:plus-circle
+                icon_color: primary
+                tap_action:
+                  action: call-service
+                  service: script.setpoint_hall_gf_inc
+
+          - type: custom:mushroom-cover-card
+            entity: cover.hall_gf_blind
+            name: Hall GF Blind
+            show_position_control: true
+            show_buttons_control: true
+            fill_container: true
+            tap_action: none
+            hold_action: none
+            double_tap_action: none
+
+      # ===== Library (with blinds) =====
+      - type: grid
+        columns: 1
+        square: false
+        cards:
+          - type: custom:mushroom-title-card
+            title: Library
+            subtitle: "{{ states('sensor.library_temperature') }} °C | {{ states('sensor.library_power') }} W"
+            icon: mdi:bookshelf
+            tap_action: none
+            hold_action: none
+            double_tap_action: none
+
+          - type: grid
+            columns: 4
+            square: false
+            cards:
+              - type: custom:button-card
+                entity: input_select.scene_library
+                name: Off
+                icon: mdi:power-standby
+                layout: icon_name
+                show_state: false
+                show_label: false
+                size: 20px
+                styles: *scene_button_styles
+                tap_action:
+                  action: call-service
+                  service: input_select.select_option
+                  data:
+                    option: "🔴 OFF"
+                  target:
+                    entity_id: input_select.scene_library
+                hold_action: *scene_button_hold
+                double_tap_action: *scene_button_hold
+                state:
+                  - value: "🔴 OFF"
+                    styles:
+                      card:
+                        - background: rgba(244, 67, 54, 0.18)
+                        - border: 1px solid rgba(244, 67, 54, 0.45)
+                      icon:
+                        - color: rgb(244, 67, 54)
+                      name:
+                        - color: var(--primary-text-color)
+              - type: custom:button-card
+                entity: input_select.scene_library
+                name: Bright
+                icon: mdi:white-balance-sunny
+                layout: icon_name
+                show_state: false
+                show_label: false
+                size: 20px
+                styles: *scene_button_styles
+                tap_action:
+                  action: call-service
+                  service: input_select.select_option
+                  data:
+                    option: "☀️ BRIGHT"
+                  target:
+                    entity_id: input_select.scene_library
+                hold_action: *scene_button_hold
+                double_tap_action: *scene_button_hold
+                state:
+                  - value: "☀️ BRIGHT"
+                    styles:
+                      card:
+                        - background: rgba(255, 193, 7, 0.2)
+                        - border: 1px solid rgba(255, 193, 7, 0.5)
+                      icon:
+                        - color: rgb(255, 193, 7)
+                      name:
+                        - color: var(--primary-text-color)
+              - type: custom:button-card
+                entity: input_select.scene_library
+                name: Warm
+                icon: mdi:weather-partly-cloudy
+                layout: icon_name
+                show_state: false
+                show_label: false
+                size: 20px
+                styles: *scene_button_styles
+                tap_action:
+                  action: call-service
+                  service: input_select.select_option
+                  data:
+                    option: "🌤️ WARM"
+                  target:
+                    entity_id: input_select.scene_library
+                hold_action: *scene_button_hold
+                double_tap_action: *scene_button_hold
+                state:
+                  - value: "🌤️ WARM"
+                    styles:
+                      card:
+                        - background: rgba(255, 152, 0, 0.22)
+                        - border: 1px solid rgba(255, 152, 0, 0.6)
+                      icon:
+                        - color: rgb(255, 152, 0)
+                      name:
+                        - color: var(--primary-text-color)
+              - type: custom:button-card
+                entity: input_select.scene_library
+                name: Clean
+                icon: mdi:broom
+                layout: icon_name
+                show_state: false
+                show_label: false
+                size: 20px
+                styles: *scene_button_styles
+                tap_action:
+                  action: call-service
+                  service: input_select.select_option
+                  data:
+                    option: "🧹 CLEAN"
+                  target:
+                    entity_id: input_select.scene_library
+                hold_action: *scene_button_hold
+                double_tap_action: *scene_button_hold
+                state:
+                  - value: "🧹 CLEAN"
+                    styles:
+                      card:
+                        - background: rgba(0, 191, 165, 0.22)
+                        - border: 1px solid rgba(0, 191, 165, 0.55)
+                      icon:
+                        - color: rgb(0, 191, 165)
+                      name:
+                        - color: var(--primary-text-color)
+
+          - type: custom:mushroom-chips-card
+            alignment: center
+            chip_spacing: 6
+            chips:
+              - type: action
+                icon: mdi:minus-circle
+                icon_color: primary
+                tap_action:
+                  action: call-service
+                  service: script.setpoint_library_dec
+              - type: template
+                icon: mdi:radiator
+                icon_color: orange
+                content: "{{ states('input_number.temp_library_setpoint') }} °C"
+                tap_action: none
+                hold_action: none
+                double_tap_action: none
+              - type: action
+                icon: mdi:plus-circle
+                icon_color: primary
+                tap_action:
+                  action: call-service
+                  service: script.setpoint_library_inc
+
+          - type: custom:mushroom-cover-card
+            entity: cover.library_blind
+            name: Library Blind
+            show_position_control: true
+            show_buttons_control: true
+            fill_container: true
+            tap_action: none
+            hold_action: none
+            double_tap_action: none
