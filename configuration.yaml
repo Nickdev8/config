@@ -4,6 +4,38 @@ default_config:
 frontend:
   themes: !include_dir_merge_named themes
 
+lovelace:
+  dashboards:
+    wall_overview:
+      mode: yaml
+      filename: dashboards/wall_overview.yaml
+      title: Campus Overview
+      icon: mdi:home-lightning-bolt
+    wall_entrance:
+      mode: yaml
+      filename: dashboards/wall_entrance.yaml
+      title: Entrance Hall
+      icon: mdi:door
+      show_in_sidebar: false
+    wall_reception:
+      mode: yaml
+      filename: dashboards/wall_reception.yaml
+      title: Reception
+      icon: mdi:sofa
+      show_in_sidebar: false
+    wall_hall_gf:
+      mode: yaml
+      filename: dashboards/wall_hall_gf.yaml
+      title: Hallway GF
+      icon: mdi:stairs
+      show_in_sidebar: false
+    wall_library:
+      mode: yaml
+      filename: dashboards/wall_library.yaml
+      title: Library
+      icon: mdi:bookshelf
+      show_in_sidebar: false
+
 # ===== Includes (alles uit één folder) =====
 homeassistant:
   customize: !include packages/kennemer/customize.yaml

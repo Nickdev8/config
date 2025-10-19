@@ -41,6 +41,26 @@ Ensure every wall tablet has these resources installed and loaded (Configuration
 
 Add more cards here as you introduce them so new displays can be staged quickly.
 
+## Lovelace Dashboards
+
+The repo now exposes five YAML dashboards (configured in `configuration.yaml → lovelace.dashboards`):
+
+| Purpose        | File                               | Path when browsing                              |
+|----------------|------------------------------------|-------------------------------------------------|
+| Campus overview| `dashboards/wall_overview.yaml`    | `/lovelace-wall_overview`                       |
+| Entrance Hall  | `dashboards/wall_entrance.yaml`    | `/lovelace-wall_entrance`                       |
+| Reception      | `dashboards/wall_reception.yaml`   | `/lovelace-wall_reception`                      |
+| Hallway GF     | `dashboards/wall_hall_gf.yaml`     | `/lovelace-wall_hall_gf`                        |
+| Library        | `dashboards/wall_library.yaml`     | `/lovelace-wall_library`                        |
+
+Each dashboard reuses the same button-card templates (`dashboards/partials/button_card_templates.yaml`) and per-room section layouts (`dashboards/partials/section_*.yaml`). Update the partial once and every room display inherits the change.
+
+**Deploying a tablet**
+
+1. Create a dedicated Home Assistant user for the display (optional but recommended).
+2. Log in on the Shelly wall display and bookmark the room-specific URL above.
+3. Enable kiosk mode/compact header in the user profile if needed so the display opens straight into its room view.
+
 ## Commissioning Checklist
 
 1. Install / pair the device; rename the entity to the convention above.
